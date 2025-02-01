@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration by Substitution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- KaTeX (for Math Rendering) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "\\(", right: "\\)", display: false }
+                ]
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            line-height: 1.6;
+            font-family: "Baloo Bhai 2", serif;
+        }
+
+        .math-box {
+            background: #282c34;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #dde9ff;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📘 Integration by Substitution</h1>
+
+    <p><b>The substitution method</b> is a technique used in integration where we replace a complex expression with a simpler variable to make the integral easier to evaluate. This method is similar to the <span class="highlight">chain rule</span> in differentiation.</p>
+
+    <h2>📝 Steps of the Substitution Method</h2>
+    <ul>
+        <li>Choose a substitution: Identify a part of the integral that can be replaced with a new variable (𝑡).</li>
+        <li>Differentiate the substitution: Find 𝑑𝑡 in terms of 𝑑𝑥.</li>
+        <li>Replace in the integral: Substitute 𝑡 and 𝑑𝑡 into the integral.</li>
+        <li>Solve the integral: Integrate in terms of 𝑡.</li>
+        <li>Substitute back: Replace 𝑡 with the original function.</li>
+    </ul>
+
+    <h2>1️⃣ Example 1: Basic Substitution</h2>
+    <p>Find:</p>
+    <div class="math-box">
+        $$ I = \int (2x+3)^4 \,dx $$
+    </div>
+
+    <h3>Step 1: Choose a substitution</h3>
+    <p>Let:</p>
+    <div class="math-box">
+        $$ t = 2x + 3 $$
+    </div>
+
+    <h3>Step 2: Differentiate</h3>
+    <p>We differentiate:</p>
+    <div class="math-box">
+        $$ \frac{d}{dx}(2x+3) = 2 \quad \Rightarrow \quad dt = 2 \,dx \quad \Rightarrow \quad dx = \frac{dt}{2} $$
+    </div>
+
+    <h3>Step 3: Substitute in the integral</h3>
+    <p>We substitute:</p>
+    <div class="math-box">
+        $$ I = \int t^4 \cdot \frac{dt}{2} $$
+    </div>
+    <p>This simplifies to:</p>
+    <div class="math-box">
+        $$ I = \frac{1}{2} \int t^4 \,dt $$
+    </div>
+
+    <h3>Step 4: Solve the integral</h3>
+    <p>Using the power rule:</p>
+    <div class="math-box">
+        $$ \int t^n \,dt = \frac{t^{n+1}}{n+1} + C $$
+    </div>
+    <p>We get:</p>
+    <div class="math-box">
+        $$ I = \frac{1}{2} \cdot \frac{t^5}{5} + C $$
+    </div>
+    <p>Which simplifies to:</p>
+    <div class="math-box">
+        $$ I = \frac{t^5}{10} + C $$
+    </div>
+
+    <h3>Step 5: Substitute back</h3>
+    <p>We substitute \( t = 2x + 3 \) back into the result:</p>
+    <div class="math-box">
+        $$ I = \frac{(2x+3)^5}{10} + C $$
+    </div>
+
+    <h2>2️⃣ Example 2: Trigonometric Substitution</h2>
+    <p>Find:</p>
+    <div class="math-box">
+        $$ I = \int \frac{\sin x - \cos x}{\sin x + \cos x} \, dx $$
+    </div>
+
+    <h3>Step 1: Choose a substitution</h3>
+    <p>Let:</p>
+    <div class="math-box">
+        $$ t = \sin x + \cos x $$
+    </div>
+
+    <h3>Step 2: Differentiate</h3>
+    <p>We differentiate:</p>
+    <div class="math-box">
+        $$ dt = (\cos x - \sin x) \, dx $$
+    </div>
+
+    <h3>Step 3: Substitute in the integral</h3>
+    <p>Since \( \sin x - \cos x = -(\cos x - \sin x) \), we rewrite the integral as:</p>
+    <div class="math-box">
+        $$ I = \int \frac{-dt}{t} $$
+    </div>
+
+    <h3>Step 4: Solve the integral</h3>
+    <p>Using the standard formula:</p>
+    <div class="math-box">
+        $$ \int \frac{du}{u} = \ln |u| + C $$
+    </div>
+    <p>We get:</p>
+    <div class="math-box">
+        $$ I = -\ln |t| + C $$
+    </div>
+
+    <h3>Step 5: Substitute back</h3>
+    <p>We substitute \( t = \sin x + \cos x \) back into the result:</p>
+    <div class="math-box">
+        $$ I = -\ln |\sin x + \cos x| + C $$
+    </div>
+
+    <h2>🧭 When to Use the Substitution Method?</h2>
+    <ul>
+        <li>When you see a composite function (e.g., \( (2x+3)^4 \)).</li>
+        <li>When differentiation of a function appears in the numerator (e.g., \( \frac{1}{x^2 + 1} \) suggests \( t = x^2 + 1 \)).</li>
+        <li>When trigonometric identities simplify the integral.</li>
+    </ul>
+
+</body>
+
+</html>

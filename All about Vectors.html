@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors - Class 11 & 12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- KaTeX (for Math Rendering) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "\\(", right: "\\)", display: false }
+                ]
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            line-height: 1.6;
+            font-family: "Baloo Bhai 2", serif;
+        }
+
+        .math-box {
+            background: #282c34;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #dde9ff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        .diagram {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .diagram img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            /* Occupy full width */
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            /* Enable horizontal scrolling */
+            display: block;
+            /* Needed for overflow-x to work */
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        caption {
+            padding: 10px;
+            font-style: italic;
+            color: #777;
+        }
+
+        /* Optional: Fix header on scroll (for larger tables) */
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f2f2f2;
+            /* Match header background */
+            z-index: 1;
+            /* Ensure it's above the content */
+        }
+
+        /* Mobile Styles (adjust as needed) */
+        @media screen and (max-width: 600px) {
+
+            th,
+            td {
+                padding: 8px 10px;
+                /* Reduced padding */
+                font-size: 14px;
+                /* Slightly smaller font */
+            }
+
+            /* Optional: Add a bit more spacing between columns on mobile */
+            th:not(:last-child),
+            td:not(:last-child) {
+                padding-right: 20px;
+                /* Add spacing to the right */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📘 Vectors - Class 11 & 12</h1>
+
+    <div>
+        <h3>Introduction to Vectors</h3>
+        <p><strong>Definition of a Vector:</strong></p>
+        <p>A vector is a quantity that has both magnitude and direction. It is usually represented as an arrow where:
+        </p>
+        <ul>
+            <li>The length of the arrow represents the magnitude of the vector.</li>
+            <li>The arrowhead represents the direction of the vector.</li>
+        </ul>
+
+        <p><strong>Difference Between Scalars and Vectors:</strong></p>
+        <table border id="table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Scalar</th>
+                    <th>Vector</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Definition</td>
+                    <td>A quantity with only magnitude</td>
+                    <td>A quantity with both magnitude and direction</td>
+                </tr>
+                <tr>
+                    <td>Examples</td>
+                    <td>Mass, time, temperature, speed</td>
+                    <td>Displacement, velocity, force, acceleration</td>
+                </tr>
+                <tr>
+                    <td>Mathematical Representation</td>
+                    <td>Just a number (e.g., 10 m, 5 s)</td>
+                    <td>Represented by an arrow or components (e.g., 5 m east, (3,4) in Cartesian form)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Representation of Vectors:</strong></p>
+        <p>Vectors can be represented in the following ways:</p>
+        <ul>
+            <li><strong>Graphical Representation:</strong> A vector is drawn as an arrow from one point to another.</li>
+            <li><strong>Component Form:</strong> A vector in a 2D plane can be written as:
+                <div class="math-box">A = Ax i^ + Ay j^</div>
+            </li>
+            <li>In 3D, it extends to:
+                <div class="math-box">A = Ax i^ + Ay j^ + Az k^</div>
+                where Ax, Ay, Az are the components along the x, y, and z axes, and i^, j^, k^ are unit vectors.
+            </li>
+        </ul>
+
+        <h4>Numerical Problems</h4>
+
+        <h5>Q1: Finding the Magnitude of a Vector</h5>
+        <p>A vector <strong>A</strong> is given by its components:</p>
+        <div class="math-box">A = 3i^ + 4j^</div>
+        <p>Find its magnitude.</p>
+        <h6>Solution:</h6>
+        <p>Magnitude of a vector is given by:</p>
+        <div class="math-box">|A| = √(Ax² + Ay²)</div>
+        <p>Substituting the given values:</p>
+        <div class="math-box">|A| = √(3² + 4²) = √(9 + 16) = √25 = 5</div>
+        <p><strong>Answer:</strong> 5 units</p>
+
+        <h5>Q2: Finding a Unit Vector</h5>
+        <p>Find the unit vector in the direction of <strong>B = 6i^ − 8j^</strong>.</p>
+        <h6>Solution:</h6>
+        <p>A unit vector <strong>B^</strong> is given by:</p>
+        <div class="math-box">B^ = B / |B|</div>
+        <p>First, find the magnitude of B:</p>
+        <div class="math-box">|B| = √(6² + (−8)²) = √(36 + 64) = √100 = 10</div>
+        <p>Now, divide each component by 10:</p>
+        <div class="math-box">B^ = (6i^ − 8j^) / 10 = 0.6i^ − 0.8j^</div>
+        <p><strong>Answer:</strong> B^ = 0.6i^ − 0.8j^</p>
+
+        <h5>Q3: Adding Three Vectors with Different Components and Finding the Resultant Magnitude</h5>
+        <p>Three vectors are given as follows:</p>
+        <div class="math-box">A = 4i^ + 3j^</div>
+        <div class="math-box">B = 5i^ − 2j^</div>
+        <div class="math-box">C = −3i^ + 6j^</div>
+        <p>Find:</p>
+        <ul>
+            <li>The resultant vector <strong>R = A + B + C</strong></li>
+            <li>The magnitude of the resultant vector</li>
+            <li>The angle <strong>θ</strong> the resultant makes with the positive x-axis</li>
+        </ul>
+
+        <h6>Solution:</h6>
+        <p><strong>Step 1:</strong> Adding the x and y Components Separately:</p>
+        <div class="math-box">Rx = Ax + Bx + Cx = 4 + 5 + (−3) = 6</div>
+        <div class="math-box">Ry = Ay + By + Cy = 3 + (−2) + 6 = 7</div>
+        <p>Thus, the resultant vector is:</p>
+        <div class="math-box">R = 6i^ + 7j^</div>
+
+        <p><strong>Step 2:</strong> Finding the Magnitude of the Resultant Vector:</p>
+        <div class="math-box">|R| = √(Rx² + Ry²) = √(6² + 7²) = √(36 + 49) = √85 ≈ 9.22</div>
+
+        <p><strong>Step 3:</strong> Finding the Angle with the x-axis:</p>
+        <div class="math-box">θ = tan⁻¹(Ry / Rx) = tan⁻¹(7 / 6)</div>
+        <p>Using a calculator:</p>
+        <div class="math-box">θ ≈ 49.4°</div>
+
+        <h4>Final Answer:</h4>
+        <ul>
+            <li>Resultant vector: <div class="math-box">R = 6i^ + 7j^</div>
+            </li>
+            <li>Magnitude: <div class="math-box">|R| ≈ 9.22 units</div>
+            </li>
+            <li>Angle with x-axis: <div class="math-box">θ ≈ 49.4°</div>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Operations on Vectors</h3>
+        <p>Now that we understand how vectors are represented and added component-wise, let's move on to vector
+            operations.</p>
+
+        <h4>a) Addition and Subtraction of Vectors</h4>
+        <p>Vectors can be added using two primary methods:</p>
+        <ul>
+            <li>Triangle Law of Vector Addition</li>
+            <li>Parallelogram Law of Vector Addition</li>
+        </ul>
+        <p>Similarly, vector subtraction follows the same process by adding the negative of a vector.</p>
+
+        <h5>1. Triangle Law of Vector Addition</h5>
+        <p>If two vectors <strong>A</strong> and <strong>B</strong> are placed head to tail, their sum
+            <strong>R</strong> is given by the vector joining the tail of the first vector to the head of the second
+            vector.</p>
+        <div class="math-box">R = A + B</div>
+
+        <p><strong>Formula for Magnitude of Resultant</strong></p>
+        <p>If two vectors have magnitudes <strong>A</strong> and <strong>B</strong> and make an angle <strong>θ</strong>
+            between them, then the magnitude of their resultant vector is:</p>
+        <div class="math-box">|R| = √(A² + B² + 2ABcosθ)</div>
+
+        <p><strong>Formula for Direction of Resultant</strong></p>
+        <p>The direction (angle <strong>α</strong>) of the resultant vector with the first vector <strong>A</strong> is
+            given by:</p>
+        <div class="math-box">tanα = (Bsinθ) / (A + Bcosθ)</div>
+
+        <h5>2. Parallelogram Law of Vector Addition</h5>
+        <p>If two vectors start from the same point, they form a parallelogram. The diagonal of the parallelogram
+            represents the resultant vector.</p>
+        <p>The magnitude and direction of the resultant are given by the same formulas as the triangle law.</p>
+
+        <h5>Vector Subtraction</h5>
+        <p>To subtract a vector <strong>B</strong> from <strong>A</strong>, we add the negative of vector
+            <strong>B</strong>:</p>
+        <div class="math-box">A − B = A + (−B)</div>
+        <p>The negative vector <strong>−B</strong> has the same magnitude as <strong>B</strong> but points in the
+            opposite direction.</p>
+
+        <h4>Numerical Problems</h4>
+
+        <h5>Q1: Two Vectors at an Angle</h5>
+        <p>Two vectors have magnitudes <strong>A = 5</strong> units and <strong>B = 10</strong> units. They make an
+            angle of <strong>60°</strong> between them. Find the magnitude and direction of the resultant.</p>
+        <h6>Solution:</h6>
+        <p>Using the formula for magnitude:</p>
+        <div class="math-box">|R| = √(A² + B² + 2ABcosθ)</div>
+        <p>Substituting the given values:</p>
+        <div class="math-box">|R| = √(5² + 10² + 2(5)(10)cos60°) = √(25 + 100 + 50) = √175 ≈ 13.23 units</div>
+
+        <p>Now, finding the direction:</p>
+        <div class="math-box">tanα = (Bsinθ) / (A + Bcosθ) = 10 × sin60° / (5 + 10 × cos60°) = 10 × 0.866 / (5 + 10 ×
+            0.5)</div>
+        <div class="math-box">tanα = 8.66 / 10 = 0.866</div>
+        <p>Therefore:</p>
+        <div class="math-box">α = tan⁻¹(0.866) ≈ 40.9°</div>
+
+        <h4>Final Answer:</h4>
+        <ul>
+            <li>Magnitude of resultant: <div class="math-box">|R| ≈ 13.23 units</div>
+            </li>
+            <li>Angle with A: <div class="math-box">α ≈ 40.9°</div>
+            </li>
+        </ul>
+
+        <h5>Q2: Subtracting Two Vectors</h5>
+        <p>Let <strong>A = 7i^ + 4j^</strong> and <strong>B = 3i^ − 2j^</strong>. Find <strong>A − B</strong>.</p>
+        <h6>Solution:</h6>
+        <p>Subtracting component-wise:</p>
+        <div class="math-box">(Ax − Bx)i^ + (Ay − By)j^ = (7 − 3)i^ + (4 − (−2))j^ = 4i^ + 6j^</div>
+
+        <h4>Final Answer:</h4>
+        <div class="math-box">A − B = 4i^ + 6j^</div>
+    </div>
+
+
+</body>
+
+</html>
